@@ -2,16 +2,12 @@ import React from 'react';
 import QRCode from 'qrcode';
 
 export default class QRGenerator extends React.Component {
-  componentDidUpdate({ code: prevCode }) {
-    const { code } = this.props;
-
-    if (code && prevCode !== code && this.canvas) {
-      this.generateCode(code);
-    }
+  componentDidMount() {
+    this.generateCode();
   }
 
-  generateCode = code => {
-    const { onCodeChange } = this.props;
+  generateCode = () => {
+    const { code, onCodeChange } = this.props;
 
     QRCode.toCanvas(this.canvas, code, function(error) {
       if (error) console.error(error);
@@ -23,6 +19,10 @@ export default class QRGenerator extends React.Component {
   };
 
   render() {
-    return <canvas ref={ref => (this.canvas = ref)} />;
+    return (
+      <div className="field-wrapper">
+        <canvas ref={ref => (this.canvas = ref)} />
+      </div>
+    );
   }
 }

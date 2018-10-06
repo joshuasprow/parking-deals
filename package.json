@@ -2,6 +2,7 @@
   "name": "parking-deals",
   "license": "MIT",
   "author": "Josh Sprow",
+  "repository": "https://github.com/joshuasprow/parking-deals",
   "scripts": {
     "dev": "next",
     "build": "next build",

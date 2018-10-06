@@ -14,14 +14,15 @@ class Home extends React.PureComponent {
         <Head title="Home" />
 
         <div className="hero">
-          <h1 className="title">Welcome to Fly Lansing's Parking Deals!</h1>
+          <h1 className="title">Welcome to Fly Lansing</h1>
+          <h3 className="description">Parking Deals</h3>
         </div>
 
         <div className="container">
           <Form onMobileChange={this.handleMobile} />
         </div>
 
-        <style jsx>{`
+        <style jsx global>{`
           :global(body) {
             margin: 0;
             font-family: -apple-system, BlinkMacSystemFont, Avenir Next, Avenir,
@@ -36,7 +37,7 @@ class Home extends React.PureComponent {
             width: 100%;
             padding-top: 80px;
             line-height: 1.15;
-            font-size: 48px;
+            font-size: 36px;
           }
           .title,
           .description {
@@ -70,6 +71,21 @@ class Home extends React.PureComponent {
             padding: 12px 0 0;
             font-size: 13px;
             color: #333;
+          }
+          .button {
+            appearance: none;
+            font-size: 1rem;
+            padding: 0.25rem;
+            background-color: #fff;
+            border: 1px solid black;
+            margin: 0.5rem 0;
+          }
+          .button:disabled {
+            color: #888;
+            border-color: #888;
+          }
+          .button:active {
+            background-color: #bbb;
           }
         `}</style>
       </div>

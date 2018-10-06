@@ -47,11 +47,14 @@ export default class MobileInput extends React.PureComponent {
   validateMobile = mobile =>
     this.setState({ mobileValid: mobile.match(/\d{10}/g) });
 
+  submitMobile = () => this.props.onSubmitMobile();
+
   render() {
+    const { mobile } = this.props;
     const { mobileTouched, mobileValid } = this.state;
 
     return (
-      <React.Fragment>
+      <div className="field-wrapper">
         <label htmlFor="mobile" className="label">
           Mobile
           <input
@@ -66,6 +69,12 @@ export default class MobileInput extends React.PureComponent {
             type="tel"
           />
         </label>
+        <button
+          className="button"
+          disabled={mobile.length < 10}
+          onClick={this.submitMobile}>
+          submit mobile
+        </button>
         <style jsx>
           {`
             .input {
@@ -83,7 +92,7 @@ export default class MobileInput extends React.PureComponent {
             }
           `}
         </style>
-      </React.Fragment>
+      </div>
     );
   }
 }

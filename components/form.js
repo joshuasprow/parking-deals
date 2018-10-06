@@ -1,25 +1,27 @@
 import React from 'react';
-import Row from './row';
-import Column from './column';
 import MobileInput from './mobile-input';
 import Scanner from './scanner';
 import QRGenerator from './qr-generator';
+
+const modes = ['mobile', 'scanner', 'generator'];
 
 export default class Form extends React.PureComponent {
   state = {
     generatedCode: null,
     scannedCode: null,
     mobile: '',
-    mode: 'generator',
+    mode: modes[0],
   };
 
   handleMobile = mobile => this.setState({ mobile });
 
-  submitMobile = () => {
-    this.setState({ showScanner: true });
-  };
+  submitMobile = () => this.setState({ mode: modes[1] });
 
   handleScannedCode = scannedCode => this.setState({ scannedCode });
+
+  submitScannedCode = () => {
+    this.setState({ mode: modes[2] });
+  };
 
   handleGeneratedCode = generatedCode => this.setState({ generatedCode });
 
@@ -27,20 +29,19 @@ export default class Form extends React.PureComponent {
     const { generatedCode, scannedCode, mobile, mode } = this.state;
 
     return (
-      <Row>
-        <Column>
+      <React.Fragment>
+        <div className="form">
           {mode === 'mobile' ? (
-            <>
-              <MobileInput onMobileChange={this.handleMobile} />
-              <button
-                className="button"
-                disabled={mobile.length < 10}
-                onClick={this.submitMobile}>
-                submit mobile
-              </button>
-            </>
+            <MobileInput
+              mobile={mobile}
+              onMobileChange={this.handleMobile}
+              onSubmitMobile={this.submitMobile}
+            />
           ) : mode === 'scanner' ? (
-            <Scanner onCodeChange={this.handleScannedCode} />
+            <Scanner
+              onCodeChange={this.handleScannedCode}
+              onSubmitCode={this.submitScannedCode}
+            />
           ) : (
             <QRGenerator
               code={scannedCode}
@@ -50,28 +51,29 @@ export default class Form extends React.PureComponent {
           <p>{`mobile: ${mobile}`}</p>
           <p>{`scanned-code: ${scannedCode || ''}`}</p>
           <p>{`generated-code: ${generatedCode || ''}`}</p>
-        </Column>
+        </div>
 
         <style jsx>
           {`
-            .button {
-              appearance: none;
-              font-size: 1rem;
-              padding: 0.25rem;
-              background-color: #fff;
-              border: 1px solid black;
-              margin: 0.5rem 0;
+            .form {
+              width: 480px;
+              height: 480px;
+              margin: 0 auto;
+              border: 1px solid red;
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+              justify-content: center;
             }
-            .button:disabled {
-              color: #888;
-              border-color: #888;
-            }
-            .button:active {
-              background-color: #bbb;
+            :global(.field-wrapper) {
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+              height: 320px;
             }
           `}
         </style>
-      </Row>
+      </React.Fragment>
     );
   }
 }

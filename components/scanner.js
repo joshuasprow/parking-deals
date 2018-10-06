@@ -1,4 +1,5 @@
 import React from 'react';
+import classNames from 'classnames';
 
 export default class Scanner extends React.PureComponent {
   state = { code: null };
@@ -12,38 +13,65 @@ export default class Scanner extends React.PureComponent {
   }
 
   startCamera = async Instascan => {
-    let scanner = new Instascan.Scanner({ video: this.video });
+    this.scanner = new Instascan.Scanner({ video: this.video });
 
-    scanner.addListener('scan', code => {
+    this.scanner.addListener('scan', code => {
       this.setState({ code });
 
       this.props.onCodeChange(code);
-
-      scanner.stop();
     });
 
     const cameras = await Instascan.Camera.getCameras();
 
     if (cameras.length > 0) {
-      scanner.start(cameras[0]);
+      this.scanner.start(cameras[0]);
     } else {
       console.error('No cameras found.');
     }
   };
 
+  submitCode = () => {
+    const { onSubmitCode } = this.props;
+    const { code } = this.state;
+
+    if (this.scanner) {
+      console.dir(this.scanner);
+
+      this.scanner.stop();
+
+      onSubmitCode(code);
+    }
+  };
+
   render() {
+    const { className, onSubmitCode } = this.props;
     const { code } = this.state;
 
     return (
-      <div className="scanner-container">
-        <video ref={ref => (this.video = ref)} width={320} height={240} />
-        <button className="button" disabled={!code}>
+      <div className="field-wrapper">
+        <video
+          className={classNames(className, { captured: code })}
+          ref={ref => (this.video = ref)}
+          width={320}
+          height={240}
+        />
+        <button className="button" disabled={!code} onClick={this.submitCode}>
           submit code
         </button>
+
         <style jsx>
           {`
-            .scanner-container {
-              width: 320px;
+            video {
+              border: 2px solid black;
+            }
+            video.active {
+              border-color: blue;
+            }
+            video.captured {
+              border-color: lightgreen;
+            }
+            video.error {
+              border-color: red;
             }
           `}
         </style>

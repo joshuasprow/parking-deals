@@ -1,6 +1,5 @@
 import React from 'react';
 import Head from '../components/head';
-import Scanner from '../components/scanner';
 import Form from '../components/form';
 
 class Home extends React.PureComponent {
@@ -11,11 +10,11 @@ class Home extends React.PureComponent {
   render() {
     return (
       <div>
-        <Head title="Home" />
+        <Head title="home" />
 
         <div className="hero">
-          <h1 className="title">Welcome to Fly Lansing</h1>
-          <h3 className="description">Parking Deals</h3>
+          <h1 className="title">welcome to fly lansing</h1>
+          <h3 className="description">parking deals</h3>
         </div>
 
         <div className="container">
@@ -75,7 +74,7 @@ class Home extends React.PureComponent {
           .button {
             appearance: none;
             font-size: 1rem;
-            padding: 0.25rem;
+            padding: 0.5rem;
             background-color: #fff;
             border: 1px solid #444;
             box-shadow: 0 0 4px #444;

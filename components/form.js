@@ -29,10 +29,10 @@ export default class Form extends React.PureComponent {
     const { generatedCode, scannedCode, mobile, mode } = this.state;
     const headerText =
       mode === 'mobile'
-        ? 'first, enter your mobile so we can remember who you are'
+        ? 'first, enter your mobile number so we can remember who you are.'
         : mode === 'scanner'
-          ? 'now, hold your ticket up to the camera so we can make it cheaper'
-          : "your ticket has been stored. here's a nice, clean copy for ya";
+          ? 'now, hold your ticket up to the camera so we can make it cheaper.'
+          : "your ticket has been stored and here's a nice, clean copy for you. go ahead and take a screenshot!";
 
     return (
       <React.Fragment>
@@ -54,6 +54,7 @@ export default class Form extends React.PureComponent {
           ) : (
             <QRGenerator
               code={scannedCode}
+              mobile={mobile}
               onCodeChange={this.handleGeneratedCode}
             />
           )}
@@ -65,11 +66,12 @@ export default class Form extends React.PureComponent {
         <style jsx>
           {`
             .form-header {
-              width: 460px;
+              width: 360px;
               margin: 0 auto;
-              padding: 10px;
+              padding: 5px 10px;
               background-color: rgba(74, 144, 226, 0.1);
               color: rgb(74, 144, 226);
+              text-align: center;
             }
             .form {
               width: 480px;
@@ -79,6 +81,9 @@ export default class Form extends React.PureComponent {
               flex-direction: column;
               align-items: center;
               justify-content: center;
+            }
+            .form > p {
+              color: #ccc;
             }
             :global(.field-wrapper) {
               display: flex;

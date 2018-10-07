@@ -55,7 +55,7 @@ export default class MobileInput extends React.PureComponent {
     return (
       <div className="field-wrapper">
         <label htmlFor="mobile" className="label">
-          Mobile
+          mobile number
         </label>
         <input
           className={classNames(
@@ -66,6 +66,7 @@ export default class MobileInput extends React.PureComponent {
           id="mobile"
           ref={ref => (this.input = ref)}
           onBlur={this.touchMobile}
+          placeholder="(   )   -"
           type="tel"
         />
         <button
@@ -85,6 +86,7 @@ export default class MobileInput extends React.PureComponent {
               font-size: 1.5rem;
               font-family: monospace;
               padding: 0.25em 0.5em;
+              margin-bottom: 0.5rem;
               appearence: none;
               border: 1px solid #444;
               box-shadow: 0 0 4px transparent;

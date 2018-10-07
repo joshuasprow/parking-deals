@@ -2,6 +2,11 @@ import React from 'react';
 import Head from '../components/head';
 import Form from '../components/form';
 
+export const buttonShadow = borderOnly =>
+  borderOnly
+    ? 'box-shadow: 0 0 0 2px rgb(74, 144, 226);'
+    : 'box-shadow: 0 0 0 2px rgb(74, 144, 226), 0 0 32px #bbb;';
+
 class Home extends React.PureComponent {
   state = { mobile: '' };
 
@@ -9,7 +14,7 @@ class Home extends React.PureComponent {
 
   render() {
     return (
-      <div>
+      <main>
         <Head title="home" />
 
         <div className="hero">
@@ -17,15 +22,21 @@ class Home extends React.PureComponent {
           <h3 className="description">parking deals</h3>
         </div>
 
-        <div className="container">
-          <Form onMobileChange={this.handleMobile} />
-        </div>
+        <Form onMobileChange={this.handleMobile} />
 
         <style jsx global>{`
           :global(body) {
             margin: 0;
             font-family: -apple-system, BlinkMacSystemFont, Avenir Next, Avenir,
               Helvetica, sans-serif;
+          }
+          main {
+            width: 100vw;
+            max-width 480px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
           }
           .hero {
             width: 100%;
@@ -42,55 +53,26 @@ class Home extends React.PureComponent {
           .description {
             text-align: center;
           }
-          .row {
-            max-width: 880px;
-            margin: 80px auto 40px;
-            display: flex;
-            flex-direction: row;
-            justify-content: space-around;
-          }
-          .card {
-            padding: 18px 18px 24px;
-            width: 220px;
-            text-align: left;
-            text-decoration: none;
-            color: #434343;
-            border: 1px solid #9b9b9b;
-          }
-          .card:hover {
-            border-color: #067df7;
-          }
-          .card h3 {
-            margin: 0;
-            color: #067df7;
-            font-size: 18px;
-          }
-          .card p {
-            margin: 0;
-            padding: 12px 0 0;
-            font-size: 13px;
-            color: #333;
-          }
-          .button {
+          button {
             appearance: none;
             font-size: 1rem;
             padding: 0.5rem;
             background-color: #fff;
-            border: 1px solid #444;
-            box-shadow: 0 0 4px #444;
+            border: none;
             margin: 0.5rem 0;
             transition: box-shadow 200ms ease-in-out;
+            ${buttonShadow(false)}
           }
-          .button:disabled {
+          button:disabled {
             color: #888;
             border-color: #888;
             box-shadow: 0 0 4px transparent;
           }
-          .button:active {
+          button:active {
             background-color: #bbb;
           }
         `}</style>
-      </div>
+      </main>
     );
   }
 }

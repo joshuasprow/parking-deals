@@ -46,13 +46,15 @@ export default class Scanner extends React.PureComponent {
     const { code } = this.state;
 
     return (
-      <div className="field-wrapper">
-        <video
-          className={classNames(className, { captured: code })}
-          ref={ref => (this.video = ref)}
-          width={320}
-          height={240}
-        />
+      <React.Fragment>
+        <section>
+          <video
+            className={classNames(className, { captured: code })}
+            ref={ref => (this.video = ref)}
+            width={320}
+            height={240}
+          />
+        </section>
         <button className="button" disabled={!code} onClick={this.submitCode}>
           submit code
         </button>
@@ -73,7 +75,7 @@ export default class Scanner extends React.PureComponent {
             }
           `}
         </style>
-      </div>
+      </React.Fragment>
     );
   }
 }

@@ -53,28 +53,31 @@ export default class MobileInput extends React.PureComponent {
     const { mobileTouched, mobileValid } = this.state;
 
     return (
-      <div className="field-wrapper">
-        <label htmlFor="mobile" className="label">
-          mobile number
-        </label>
-        <input
-          className={classNames(
-            'input',
-            { valid: mobileValid },
-            { error: mobileTouched && !mobileValid },
-          )}
-          id="mobile"
-          ref={ref => (this.input = ref)}
-          onBlur={this.touchMobile}
-          placeholder="(   )   -"
-          type="tel"
-        />
+      <React.Fragment>
+        <section role="form">
+          <label htmlFor="mobile" className="label">
+            mobile number
+          </label>
+          <input
+            className={classNames(
+              'input',
+              { valid: mobileValid },
+              { error: mobileTouched && !mobileValid },
+            )}
+            id="mobile"
+            ref={ref => (this.input = ref)}
+            onBlur={this.touchMobile}
+            placeholder="(   )   -"
+            type="tel"
+          />
+        </section>
         <button
           className="button"
           disabled={mobile.length < 10}
           onClick={this.submitMobile}>
           submit mobile
         </button>
+
         <style jsx>
           {`
             .label {
@@ -106,7 +109,7 @@ export default class MobileInput extends React.PureComponent {
             }
           `}
         </style>
-      </div>
+      </React.Fragment>
     );
   }
 }

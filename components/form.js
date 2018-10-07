@@ -10,7 +10,7 @@ export default class Form extends React.PureComponent {
     generatedCode: null,
     scannedCode: null,
     mobile: '',
-    mode: modes[0],
+    mode: modes[2],
   };
 
   handleMobile = mobile => this.setState({ mobile });
@@ -36,60 +36,61 @@ export default class Form extends React.PureComponent {
 
     return (
       <React.Fragment>
-        <div className="form-header">
+        <header>
           <p>{headerText}</p>
-        </div>
-        <div className="form">
-          {mode === 'mobile' ? (
-            <MobileInput
-              mobile={mobile}
-              onMobileChange={this.handleMobile}
-              onSubmitMobile={this.submitMobile}
-            />
-          ) : mode === 'scanner' ? (
-            <Scanner
-              onCodeChange={this.handleScannedCode}
-              onSubmitCode={this.submitScannedCode}
-            />
-          ) : (
-            <QRGenerator
-              code={scannedCode}
-              mobile={mobile}
-              onCodeChange={this.handleGeneratedCode}
-            />
-          )}
-          <p>{`mobile: ${mobile}`}</p>
-          <p>{`scanned-code: ${scannedCode || ''}`}</p>
-          <p>{`generated-code: ${generatedCode || ''}`}</p>
+        </header>
+        {mode === 'mobile' ? (
+          <MobileInput
+            mobile={mobile}
+            onMobileChange={this.handleMobile}
+            onSubmitMobile={this.submitMobile}
+          />
+        ) : mode === 'scanner' ? (
+          <Scanner
+            onCodeChange={this.handleScannedCode}
+            onSubmitCode={this.submitScannedCode}
+          />
+        ) : (
+          <QRGenerator
+            code={scannedCode}
+            mobile={mobile}
+            onCodeChange={this.handleGeneratedCode}
+          />
+        )}
+        <div className="debug">
+          <p>
+            <strong>mobile: </strong>
+            {mobile}
+          </p>
+          <p>
+            <strong>scanned-code: </strong>
+            {scannedCode || ''}
+          </p>
+          <p>
+            <strong>generated-code: </strong>
+            {generatedCode || ''}
+          </p>
         </div>
 
         <style jsx>
           {`
-            .form-header {
-              width: 360px;
+            header {
+              width: 100%;
               margin: 0 auto;
-              padding: 5px 10px;
               background-color: rgba(74, 144, 226, 0.1);
-              color: rgb(74, 144, 226);
+              color: rgb(34, 104, 186);
               text-align: center;
             }
-            .form {
-              width: 480px;
-              height: 480px;
-              margin: 0 auto;
+            header p {
+              margin: 1rem 0.5rem;
+            }
+            .debug {
+              color: #ccc;
+            }
+            :global(section) {
               display: flex;
               flex-direction: column;
               align-items: center;
-              justify-content: center;
-            }
-            .form > p {
-              color: #ccc;
-            }
-            :global(.field-wrapper) {
-              display: flex;
-              flex-direction: column;
-              justify-content: center;
-              height: 320px;
             }
           `}
         </style>

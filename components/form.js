@@ -27,9 +27,18 @@ export default class Form extends React.PureComponent {
 
   render() {
     const { generatedCode, scannedCode, mobile, mode } = this.state;
+    const headerText =
+      mode === 'mobile'
+        ? 'first, enter your mobile so we can remember who you are'
+        : mode === 'scanner'
+          ? 'now, hold your ticket up to the camera so we can make it cheaper'
+          : "your ticket has been stored. here's a nice, clean copy for ya";
 
     return (
       <React.Fragment>
+        <div className="form-header">
+          <p>{headerText}</p>
+        </div>
         <div className="form">
           {mode === 'mobile' ? (
             <MobileInput
@@ -55,11 +64,17 @@ export default class Form extends React.PureComponent {
 
         <style jsx>
           {`
+            .form-header {
+              width: 460px;
+              margin: 0 auto;
+              padding: 10px;
+              background-color: rgba(74, 144, 226, 0.1);
+              color: rgb(74, 144, 226);
+            }
             .form {
               width: 480px;
               height: 480px;
               margin: 0 auto;
-              border: 1px solid red;
               display: flex;
               flex-direction: column;
               align-items: center;

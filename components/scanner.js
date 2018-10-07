@@ -35,8 +35,6 @@ export default class Scanner extends React.PureComponent {
     const { code } = this.state;
 
     if (this.scanner) {
-      console.dir(this.scanner);
-
       this.scanner.stop();
 
       onSubmitCode(code);

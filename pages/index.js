@@ -77,12 +77,15 @@ class Home extends React.PureComponent {
             font-size: 1rem;
             padding: 0.25rem;
             background-color: #fff;
-            border: 1px solid black;
+            border: 1px solid #444;
+            box-shadow: 0 0 4px #444;
             margin: 0.5rem 0;
+            transition: box-shadow 200ms ease-in-out;
           }
           .button:disabled {
             color: #888;
             border-color: #888;
+            box-shadow: 0 0 4px transparent;
           }
           .button:active {
             background-color: #bbb;

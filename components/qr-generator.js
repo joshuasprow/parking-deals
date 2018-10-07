@@ -7,14 +7,15 @@ export default class QRGenerator extends React.Component {
   }
 
   generateCode = () => {
-    const { code, onCodeChange } = this.props;
+    const { onCodeChange } = this.props;
+    const code = '641C2M2TITO2DWVN4XZ0';
 
-    QRCode.toCanvas(this.canvas, code, function(error) {
-      if (error) console.error(error);
+    QRCode.toCanvas(this.canvas, code, { width: 320, height: 320 }, error => {
+      if (error) {
+        throw error;
+      }
 
       onCodeChange(code);
-
-      console.log('success!');
     });
   };
 

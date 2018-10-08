@@ -1,5 +1,6 @@
 import React from 'react';
 import classNames from 'classnames';
+import { buttonShadow } from '../pages';
 
 export default class Scanner extends React.PureComponent {
   state = { code: null };
@@ -51,27 +52,28 @@ export default class Scanner extends React.PureComponent {
           <video
             className={classNames(className, { captured: code })}
             ref={ref => (this.video = ref)}
-            width={320}
             height={240}
           />
         </section>
-        <button className="button" disabled={!code} onClick={this.submitCode}>
+        <button disabled={!code} onClick={this.submitCode}>
           submit code
         </button>
 
         <style jsx>
           {`
             video {
-              border: 2px solid black;
+              width: 320px;
+              height: 240px;
+              ${buttonShadow()};
             }
             video.active {
-              border-color: blue;
+              ${buttonShadow()};
             }
             video.captured {
-              border-color: lightgreen;
+              ${buttonShadow('lightgreen', true)};
             }
             video.error {
-              border-color: red;
+              ${buttonShadow('red', true)};
             }
           `}
         </style>

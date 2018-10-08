@@ -3,7 +3,12 @@ import QRCode from 'qrcode';
 import { buttonShadow } from '../pages';
 
 const DownloadLink = ({ url, ...props }) => (
-  <a href={url} download="fly-lansing-qr-code.png" {...props} />
+  <a
+    download="fly-lansing-qr-code.png"
+    className="download-link"
+    href={url}
+    {...props}
+  />
 );
 
 export default class QRGenerator extends React.Component {
@@ -65,6 +70,9 @@ export default class QRGenerator extends React.Component {
               max-width: 100vw;
               max-height: 100vw;
               margin: 1rem 0;
+            }
+            .download-link {
+              text-decoration: none;
             }
           `}
         </style>

@@ -10,7 +10,7 @@ export default class Form extends React.PureComponent {
     generatedCode: null,
     scannedCode: null,
     mobile: '',
-    mode: modes[2],
+    mode: modes[0],
   };
 
   handleMobile = mobile => this.setState({ mobile });
@@ -91,6 +91,7 @@ export default class Form extends React.PureComponent {
               display: flex;
               flex-direction: column;
               align-items: center;
+              margin: 1rem 0;
             }
           `}
         </style>

@@ -2,10 +2,11 @@ import React from 'react';
 import Head from '../components/head';
 import Form from '../components/form';
 
-export const buttonShadow = borderOnly =>
-  borderOnly
-    ? 'box-shadow: 0 0 0 2px rgb(74, 144, 226);'
-    : 'box-shadow: 0 0 0 2px rgb(74, 144, 226), 0 0 32px #bbb;';
+export const blue = 'rgb(74, 144, 226)';
+export const buttonShadow = (color, hasShadow) =>
+  hasShadow
+    ? `box-shadow: 0 0 0 2px ${color || blue}, 0 0 32px #bbb;`
+    : `box-shadow: 0 0 0 2px ${color || blue};`;
 
 class Home extends React.PureComponent {
   state = { mobile: '' };
@@ -60,16 +61,20 @@ class Home extends React.PureComponent {
             background-color: #fff;
             border: none;
             margin: 0.5rem 0;
-            transition: box-shadow 200ms ease-in-out;
-            ${buttonShadow(false)}
+            transform: translateY(-1px);
+            transition: box-shadow 200ms ease-in-out, transform 200ms ease-in-out;
+            ${buttonShadow(null, true)}
           }
           button:disabled {
             color: #888;
             border-color: #888;
-            box-shadow: 0 0 4px transparent;
+            transform: translateY(0);
+            ${buttonShadow()}
           }
           button:active {
             background-color: #bbb;
+            transform: translateY(0);
+            transition: box-shadow 50ms ease-in-out, transform 50ms ease-in-out;
           }
         `}</style>
       </main>

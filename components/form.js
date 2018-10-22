@@ -29,10 +29,10 @@ export default class Form extends React.PureComponent {
     const { generatedCode, scannedCode, mobile, mode } = this.state;
     const headerText =
       mode === 'mobile'
-        ? 'first, enter your mobile number so we can remember who you are.'
+        ? 'First, enter your mobile number so we can remember who you are.'
         : mode === 'scanner'
-          ? 'now, hold your ticket up to the camera so we can make it cheaper.'
-          : "your ticket has been stored and here's a nice, clean copy for you. go ahead and take a screenshot!";
+          ? 'Now, hold your ticket up to the camera so we can make it cheaper.'
+          : "Your ticket has been stored and here's a nice, clean copy for you. Go ahead and click it to download the QR Code to your phone or you can have it texted to you.";
 
     return (
       <React.Fragment>

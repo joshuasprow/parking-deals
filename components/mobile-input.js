@@ -56,12 +56,9 @@ export default class MobileInput extends React.PureComponent {
     return (
       <React.Fragment>
         <section role="form">
-          <label htmlFor="mobile" className="label">
-            mobile number
-          </label>
+          <label htmlFor="mobile">Mobile Number</label>
           <input
             className={classNames(
-              'input',
               { valid: mobileValid },
               { error: mobileTouched && !mobileValid },
             )}
@@ -73,15 +70,15 @@ export default class MobileInput extends React.PureComponent {
           />
         </section>
         <button disabled={mobile.length < 10} onClick={this.submitMobile}>
-          submit mobile
+          Next
         </button>
 
         <style jsx>
           {`
-            .label {
+            label {
               margin-bottom: 0.5rem;
             }
-            .input {
+            input {
               display: block;
               position: relative;
               max-width: 8em;
@@ -97,16 +94,16 @@ export default class MobileInput extends React.PureComponent {
                 box-shadow 200ms ease-in-out;
               ${buttonShadow()};
             }
-            .input:focus {
+            input:focus {
               transform: translateY(0);
               ${buttonShadow(null, true)};
             }
-            .input.valid {
+            input.valid {
               transform: translateY(0);
               color: green;
               ${buttonShadow('green', true)};
             }
-            .input.error {
+            input.error {
               transform: translateY(0);
               color: red;
               ${buttonShadow('red', true)};

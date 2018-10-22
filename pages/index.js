@@ -1,6 +1,7 @@
 import React from 'react';
 import Head from '../components/head';
 import Form from '../components/form';
+import fetch from 'isomorphic-unfetch';
 
 export const blue = 'rgb(74, 144, 226)';
 export const buttonShadow = (color, hasShadow) =>
@@ -19,8 +20,8 @@ class Home extends React.PureComponent {
         <Head title="home" />
 
         <div className="hero">
-          <h1 className="title">welcome to fly lansing</h1>
-          <h3 className="description">parking deals</h3>
+          <h1 className="title">Welcome to Fly Lansing</h1>
+          <h3 className="description">Parking Rewards</h3>
         </div>
 
         <Form onMobileChange={this.handleMobile} />
@@ -54,6 +55,9 @@ class Home extends React.PureComponent {
           .description {
             text-align: center;
           }
+          .description {
+            color: #888;
+          }
           button {
             appearance: none;
             font-size: 1rem;
@@ -69,7 +73,7 @@ class Home extends React.PureComponent {
             color: #888;
             border-color: #888;
             transform: translateY(0);
-            ${buttonShadow()}
+            ${buttonShadow('#ddd')}
           }
           button:active {
             background-color: #bbb;

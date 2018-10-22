@@ -43,7 +43,7 @@ export default class Scanner extends React.PureComponent {
   };
 
   render() {
-    const { className, onSubmitCode } = this.props;
+    const { className } = this.props;
     const { code } = this.state;
 
     return (
@@ -56,7 +56,7 @@ export default class Scanner extends React.PureComponent {
           />
         </section>
         <button disabled={!code} onClick={this.submitCode}>
-          submit code
+          Next
         </button>
 
         <style jsx>

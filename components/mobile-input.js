@@ -47,10 +47,7 @@ export default class MobileInput extends React.PureComponent {
   validateMobile = mobile =>
     this.setState({ mobileValid: mobile.match(/\d{10}/g) });
 
-  submitMobile = () => this.props.onSubmitMobile();
-
   render() {
-    const { mobile } = this.props;
     const { mobileTouched, mobileValid } = this.state;
 
     return (
@@ -69,9 +66,6 @@ export default class MobileInput extends React.PureComponent {
             type="tel"
           />
         </section>
-        <button disabled={mobile.length < 10} onClick={this.submitMobile}>
-          Next
-        </button>
 
         <style jsx>
           {`
@@ -87,26 +81,23 @@ export default class MobileInput extends React.PureComponent {
               padding: 0.25em 0.5em;
               margin-bottom: 0.5rem;
               appearence: none;
-              border: none;
+              border: 1px solid rgb(34, 104, 186);
+              border-radius: 3px;
               outline: none;
               transform: translateY(1px);
               transition: transform 200ms ease-in-out,
                 box-shadow 200ms ease-in-out;
-              ${buttonShadow()};
             }
             input:focus {
               transform: translateY(0);
-              ${buttonShadow(null, true)};
             }
             input.valid {
               transform: translateY(0);
               color: green;
-              ${buttonShadow('green', true)};
             }
             input.error {
               transform: translateY(0);
               color: red;
-              ${buttonShadow('red', true)};
             }
           `}
         </style>

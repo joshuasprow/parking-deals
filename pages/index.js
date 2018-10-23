@@ -40,6 +40,9 @@ class Home extends React.PureComponent {
             flex-direction: column;
             align-items: center;
           }
+          h3 {
+            margin: 30px 0;
+          }
           .hero {
             width: 100%;
             color: #333;
@@ -56,7 +59,7 @@ class Home extends React.PureComponent {
             text-align: center;
           }
           .description {
-            color: #888;
+            color: #777;
           }
           button {
             appearance: none;

@@ -88,15 +88,15 @@ export default class Form extends React.PureComponent {
             }
             .debug {
               color: #aaa;
+              margin: 30px 0;
+              text-align: center;
             }
             :global(section) {
               display: flex;
               flex-direction: column;
               align-items: center;
-              margin: 1rem 0;
-            }
-            section.jsx-2588165231 {
-              margin: 30px 15px;
+              /* margin: 1rem 0; */
+              margin: 30px 0;
             }
 
           `}

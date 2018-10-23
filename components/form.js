@@ -87,7 +87,7 @@ export default class Form extends React.PureComponent {
               margin: 1rem 0.5rem;
             }
             .debug {
-              color: #ccc;
+              color: #aaa;
             }
             :global(section) {
               display: flex;

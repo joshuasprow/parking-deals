@@ -64,15 +64,6 @@ class Home extends React.PureComponent {
             transform: translateY(-1px);
             transition: box-shadow 200ms ease-in-out, transform 200ms ease-in-out;
             /* buttonShadow(null, true) */
-            margin: 5px auto 10px;
-            background-color: rgba(74,144,226,0.1);
-            color: rgb(34,104,186);
-            text-align: center;
-            border: 1px solid rgb(34,104,186);
-            border-radius: 3px;
-            padding: 10px 25px;
-          }
-          button.jsx-2588165231 {
             padding: 10px 25px;
             margin: 0 auto;
             background-color: rgba(74,144,226,0.1);

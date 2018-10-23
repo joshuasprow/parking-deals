@@ -75,11 +75,13 @@ export default class Form extends React.PureComponent {
         <style jsx>
           {`
             header {
-              width: 100%;
+              width: 80%;
               margin: 0 auto;
-              background-color: rgba(74, 144, 226, 0.1);
-              color: rgb(34, 104, 186);
+              background-color: rgba(74,144,226,0.1);
+              color: rgb(34,104,186);
               text-align: center;
+              border: 1px solid rgb(34,104,186);
+              border-radius: 3px;
             }
             header p {
               margin: 1rem 0.5rem;
@@ -93,6 +95,10 @@ export default class Form extends React.PureComponent {
               align-items: center;
               margin: 1rem 0;
             }
+            section.jsx-2588165231 {
+              margin: 30px 15px;
+            }
+
           `}
         </style>
       </React.Fragment>

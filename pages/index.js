@@ -20,8 +20,8 @@ class Home extends React.PureComponent {
         <Head title="home" />
 
         <div className="hero">
-          <h1 className="title">Welcome to Fly Lansing</h1>
-          <h3 className="description">Parking Rewards</h3>
+          <h1 className="title">Welcome to Fly Lansing Air Deals</h1>
+          <h3 className="description">Introducing <strong>Parking Rewards</strong></h3>
         </div>
 
         <Form onMobileChange={this.handleMobile} />
@@ -29,7 +29,7 @@ class Home extends React.PureComponent {
         <style jsx global>{`
           :global(body) {
             margin: 0;
-            font-family: -apple-system, BlinkMacSystemFont, Avenir Next, Avenir,
+            font-family: Open Sans, -apple-system, BlinkMacSystemFont, Avenir Next, Avenir,
               Helvetica, sans-serif;
           }
           main {
@@ -61,13 +61,27 @@ class Home extends React.PureComponent {
           button {
             appearance: none;
             font-size: 1rem;
-            padding: 0.5rem;
-            background-color: #fff;
-            border: none;
-            margin: 0.5rem 0;
             transform: translateY(-1px);
             transition: box-shadow 200ms ease-in-out, transform 200ms ease-in-out;
-            ${buttonShadow(null, true)}
+            /* buttonShadow(null, true) */
+            margin: 5px auto 10px;
+            background-color: rgba(74,144,226,0.1);
+            color: rgb(34,104,186);
+            text-align: center;
+            border: 1px solid rgb(34,104,186);
+            border-radius: 3px;
+            padding: 10px 25px;
+          }
+          button.jsx-2588165231 {
+            padding: 10px 25px;
+            margin: 0 auto;
+            background-color: rgba(74,144,226,0.1);
+            color: rgb(34,104,186);
+            text-align: center;
+            border: 1px solid rgb(34,104,186);
+            border-radius: 3px;
+            cursor: pointer;
+            font-family: 'Open Sans',Helvetica,Arial,sans-serif;
           }
           button:disabled {
             color: #888;

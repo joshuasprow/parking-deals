@@ -10,6 +10,9 @@ export default () => (
       <Link href="/scanner">
         <a>scanner</a>
       </Link>
+      <Link href="/confirm">
+        <a>confirm</a>
+      </Link>
     </div>
     <style jsx>
       {`

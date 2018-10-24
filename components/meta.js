@@ -37,6 +37,9 @@ export default ({ children, code, mobile }) => (
         border-bottom: 1px solid #ccc;
         margin-bottom: 30px;
       }
+      article.jsx-3004831285 {
+        height: 180px;
+      }
       button {
         appearance: none;
         font-size: 1rem;

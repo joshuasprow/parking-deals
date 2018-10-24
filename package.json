@@ -6,7 +6,9 @@
   "scripts": {
     "dev": "next",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "deploy": "now",
+    "publish": "bash publish.sh"
   },
   "dependencies": {
     "@zxing/library": "^0.8.3",

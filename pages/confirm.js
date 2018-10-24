@@ -8,7 +8,7 @@ class Confirm extends React.PureComponent {
     return (
       <Meta>
         <p>
-          You have <strong>70</strong> loyalty points!
+          You have <strong>71</strong> loyalty points!
         </p>
         <p>Would you like to apply these points to your parking pass?</p>
         <Row>

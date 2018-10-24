@@ -38,17 +38,19 @@ class Scanner extends React.PureComponent {
     return (
       <Meta code={code} mobile={mobile}>
         <div className="reader-wrapper">
-          {/* The reader is going to be a bitch to style. Stay away! */}
-          {QrReader && (
+          {QrReader ? (
             <QrReader
               onError={this.handleError}
               onScan={this.submitCode}
               style={{ margin: 0 }}
             />
+          ) : code ? (
+            <img src="/static/checkmark.png" alt="success" />
+          ) : (
+            undefined
           )}
         </div>
 
-        {/* Don't worry about styling Links. They don't render. */}
         <Link href={{ pathname: '/confirm', query: { code, mobile } }}>
           <button disabled={!code || !mobile}>Next</button>
         </Link>
@@ -56,9 +58,12 @@ class Scanner extends React.PureComponent {
         <style jsx>{`
           .reader-wrapper {
             width: 300px;
-            max-width: 90vw;
             height: 300px;
-            max-height: 70vh;
+            margin-bottom: 25px;
+          }
+          img {
+            width: 200px;
+            margin: 50px;
           }
         `}</style>
       </Meta>

@@ -17,7 +17,6 @@ class Home extends React.PureComponent {
       <Meta>
         <MobileInput mobile={mobile} onMobileChange={this.handleMobile} />
 
-        {/* Don't worry about styling Links. They don't render. */}
         <Link href={{ pathname: '/scanner', query: { mobile } }}>
           <button disabled={mobile.length < 10}>Next</button>
         </Link>

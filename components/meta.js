@@ -28,10 +28,13 @@ export default ({ children, code, mobile }) => (
         flex-direction: column;
         align-items: center;
       }
-      section {
+      article {
         display: flex;
         flex-direction: column;
+        justify-content: center;
         align-items: center;
+        height: 300px;
+        margin-bottom: 25px;
       }
       button {
         appearance: none;

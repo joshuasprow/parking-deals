@@ -52,7 +52,7 @@ export default class MobileInput extends React.PureComponent {
 
     return (
       <React.Fragment>
-        <section role="form">
+        <article role="form">
           <label htmlFor="mobile">Mobile Number</label>
           <input
             className={classNames(
@@ -65,7 +65,7 @@ export default class MobileInput extends React.PureComponent {
             placeholder="(   )   -"
             type="tel"
           />
-        </section>
+        </article>
 
         <style jsx>
           {`

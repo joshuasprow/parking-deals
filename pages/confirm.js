@@ -7,31 +7,46 @@ class Confirm extends React.PureComponent {
   render() {
     return (
       <Meta>
-        <p>
-          You have earned <strong>$5 off parking!</strong>
-        </p>
-        <p>Would you like to redeem your discount now?</p>
-        <Row>
-          <button>Yes</button>
-          <span> &nbsp; </span>
-          <button>No</button>
-        </Row>
-
-        <Row>
-          Total points earned
-          <strong>680</strong>
-        </Row>
-
-        <Row>
-          Points to earn Diamond status
-          <strong>70</strong>
+        <article>
           <p>
-            <em>
-              (Diamond status memebers receive an exclusive earn 10% off Parking
-              for the remainder of the year!)
-            </em>
+            You have earned <strong>$5 off parking!</strong>
           </p>
-        </Row>
+          <p>Would you like to redeem your discount now?</p>
+          <Row>
+            <button>Yes</button>
+            <button>No</button>
+          </Row>
+        </article>
+        <div>
+          <p>
+            Total points earned <strong>680</strong>
+          </p>
+
+          <p>
+            Points to earn Diamond status <strong>70</strong>
+          </p>
+
+          <em>
+            (Diamond status memebers receive an exclusive earn 10% off Parking
+            for the remainder of the year!)
+          </em>
+        </div>
+
+        <style jsx>
+          {`
+            button { 
+              margin 5px;
+            }
+            div {
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+            }
+            em {
+              width: 20rem;
+            }
+          `}
+        </style>
       </Meta>
     );
   }

@@ -8,13 +8,26 @@ class Confirm extends React.PureComponent {
     return (
       <Meta>
         <p>
-          You have <strong>70</strong> loyalty points!
+          You have earned <strong>$5 off parking!</strong>
         </p>
-        <p>Would you like to apply these points to your parking pass?</p>
+        <p>Would you like to redeem your discount now?</p>
         <Row>
           <button>Yes</button>
+          <span> &nbsp; </span>
           <button>No</button>
         </Row>
+
+        <Row>
+        Total points earned
+        <strong>680</strong>
+        </Row>
+
+        <Row>
+        Points to earn Diamond status
+        <strong>70</strong>
+        <p><em>(Diamond status memebers receive an exclusive earn 10% off Parking for the remainder of the year!)</em></p>
+        </Row>
+
       </Meta>
     );
   }

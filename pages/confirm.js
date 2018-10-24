@@ -27,8 +27,8 @@ class Confirm extends React.PureComponent {
           </p>
 
           <em>
-            (Diamond status memebers receive an exclusive earn 10% off Parking
-            for the remainder of the year!)
+            (Diamond status members receive an exclusive 10% off Parking for the
+            remainder of the year!)
           </em>
         </div>
 
@@ -43,7 +43,7 @@ class Confirm extends React.PureComponent {
               align-items: center;
             }
             em {
-              width: 20rem;
+              width: 18rem;
             }
           `}
         </style>

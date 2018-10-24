@@ -22,6 +22,9 @@ export default props => {
         <Link href="/scanner">
           <a>scanner</a>
         </Link>
+        <Link href="/confirm">
+          <a>confirm</a>
+        </Link>
       </div>
       <p>
         <strong>mobile: </strong>

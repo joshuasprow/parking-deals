@@ -34,7 +34,8 @@ export default ({ children, code, mobile }) => (
         justify-content: center;
         align-items: center;
         height: 300px;
-        margin-bottom: 25px;
+        border-bottom: 1px solid #ccc;
+        margin-bottom: 30px;
       }
       button {
         appearance: none;

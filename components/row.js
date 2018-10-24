@@ -6,7 +6,8 @@ export default props => (
     <style jsx>{`
       .row {
         max-width: 880px;
-        margin: 80px auto 40px;
+        /* margin: 80px auto 40px; */
+        margin: 40px auto 0;
         display: flex;
         flex-direction: row;
         justify-content: space-around;

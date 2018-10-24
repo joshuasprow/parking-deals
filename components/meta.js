@@ -2,7 +2,6 @@ import React from 'react';
 import Debug from './debug';
 import Head from './head';
 import Hero from './hero';
-import Nav from './nav';
 
 const isDevEnvironment = process.env.NODE_ENV === 'development';
 
@@ -12,7 +11,7 @@ export default ({ children, code, mobile }) => (
       <Head />
       <Hero />
       {children}
-      {isDevEnvironment && <Debug mobile={mobile} />}
+      {isDevEnvironment && <Debug code={code} mobile={mobile} />}
     </main>
 
     <style jsx global>{`

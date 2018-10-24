@@ -1,8 +1,5 @@
 import React from 'react';
 import Link from 'next/link';
-import Debug from '../components/debug';
-import Head from '../components/head';
-import Hero from '../components/hero';
 import MobileInput from '../components/mobile-input';
 import Meta from '../components/meta';
 
@@ -19,6 +16,8 @@ class Home extends React.PureComponent {
     return (
       <Meta>
         <MobileInput mobile={mobile} onMobileChange={this.handleMobile} />
+
+        {/* Don't worry about styling Links. They don't render. */}
         <Link href={{ pathname: '/scanner', query: { mobile } }}>
           <button disabled={mobile.length < 10}>next</button>
         </Link>

@@ -1,15 +1,24 @@
 import React from 'react';
-
+import Link from 'next/link';
+import { withRouter } from 'next/router';
 import Meta from '../components/meta';
 
-export default class Scanner extends React.PureComponent {
-  state = { QrReader: null };
+class Scanner extends React.PureComponent {
+  state = { code: null, mobile: null, QrReader: null };
 
   componentDidMount() {
+    const { router } = this.props;
+
     if (typeof window !== 'undefined') {
       const QrReader = require('react-qr-reader');
 
       this.setState({ QrReader });
+    }
+
+    if (router && router.query && router.query.mobile) {
+      this.setState({ mobile: router.query.mobile }, () =>
+        console.log(this.state),
+      );
     }
   }
 
@@ -19,17 +28,15 @@ export default class Scanner extends React.PureComponent {
 
   submitCode = code => {
     if (code) {
-      this.setState({ QrReader: null });
-
-      console.log(code);
+      this.setState({ code, QrReader: null });
     }
   };
 
   render() {
-    const { QrReader } = this.state;
+    const { code, mobile, QrReader } = this.state;
 
     return (
-      <Meta>
+      <Meta code={code} mobile={mobile}>
         <div className="reader-wrapper">
           {QrReader && (
             <QrReader
@@ -39,6 +46,10 @@ export default class Scanner extends React.PureComponent {
             />
           )}
         </div>
+
+        <Link href={{ pathname: '/confirm', query: { code, mobile } }}>
+          <button disabled={!code || !mobile}>next</button>
+        </Link>
 
         <style jsx>{`
           .reader-wrapper {
@@ -52,3 +63,5 @@ export default class Scanner extends React.PureComponent {
     );
   }
 }
+
+export default withRouter(Scanner);

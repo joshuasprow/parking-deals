@@ -50,7 +50,7 @@ class Scanner extends React.PureComponent {
 
         {/* Don't worry about styling Links. They don't render. */}
         <Link href={{ pathname: '/confirm', query: { code, mobile } }}>
-          <button disabled={!code || !mobile}>next</button>
+          <button disabled={!code || !mobile}>Next</button>
         </Link>
 
         <style jsx>{`

@@ -19,7 +19,7 @@ class Home extends React.PureComponent {
 
         {/* Don't worry about styling Links. They don't render. */}
         <Link href={{ pathname: '/scanner', query: { mobile } }}>
-          <button disabled={mobile.length < 10}>next</button>
+          <button disabled={mobile.length < 10}>Next</button>
         </Link>
       </Meta>
     );

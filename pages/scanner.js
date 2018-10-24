@@ -38,6 +38,7 @@ class Scanner extends React.PureComponent {
     return (
       <Meta code={code} mobile={mobile}>
         <div className="reader-wrapper">
+          {/* The reader is going to be a bitch to style. Stay away! */}
           {QrReader && (
             <QrReader
               onError={this.handleError}
@@ -47,6 +48,7 @@ class Scanner extends React.PureComponent {
           )}
         </div>
 
+        {/* Don't worry about styling Links. They don't render. */}
         <Link href={{ pathname: '/confirm', query: { code, mobile } }}>
           <button disabled={!code || !mobile}>next</button>
         </Link>
